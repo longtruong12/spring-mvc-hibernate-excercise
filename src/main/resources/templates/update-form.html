@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+</head>
+<body>
+    <h1>Edit Product</h1>
+    <form method="post" th:action="@{/products/update}">
+        <input type="hidden" id="id" name="id" th:value="${product.id}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" th:value="${product.name}" required>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required th:text="${product.description}"></textarea>
+        <br>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" th:value="${product.price}" required>
+        <br>
+        <button type="submit">Update</button>
+    </form>
+    <a th:href="@{/products/list}">Back to List</a>
+</body>
+</html>
